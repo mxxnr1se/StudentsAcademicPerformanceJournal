@@ -1,0 +1,21 @@
+<form novalidate #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" [value]="service.formData.id">
+    <div class="form-group">
+        <label>STUDENT`S FIRST NAME</label>
+        <input class="form-control form-control-lg" placeholder="Student`s first name..." name="firstName" #firstName="ngModel" [(ngModel)]="service.formData.firstName" required maxlength="30" minlength="1" [class.invalid]="firstName.invalid && firstName.touched">
+    </div>
+    <div class="form-group">
+        <label>MANAGER`S LAST NAME</label>
+        <input class="form-control form-control-lg" placeholder="Student`s last name..." name="lastName" #lastName="ngModel" [(ngModel)]="service.formData.lastName" required maxlength="30" minlength="1" [class.invalid]="lastName.invalid && lastName.touched">
+    </div>
+    <div class="form-group">
+        <label>STUDENT GROUP</label>
+        <select class="form-control form-control-lg" name="groupSel" #groupSel="ngModel" [(ngModel)]="service.formData.groupId" [class.invalid]="groupSel.invalid && groupSel.touched">
+            <option value=null selected>None</option>
+            <option [ngValue]="gr.id" *ngFor="let gr of service.groupList">{{gr.number}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info btn-lg btn-block" [disabled]="form.invalid || (firstName.pristine && lastName.pristine && groupSel.pristine)">SUBMIT</button>
+    </div>
+</form>

@@ -1,0 +1,24 @@
+<form novalidate #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" [value]="service.formData.id">
+    <div class="form-group">
+        <label>SUBJECT</label>
+        <select class="form-control form-control-lg" name="subjectSel" #subjectSel="ngModel" [(ngModel)]="service.formData.subjectId" [class.invalid]="subjectSel.invalid && subjectSel.touched">
+            <option value=null selected>None</option>
+            <option [ngValue]="sb.id" *ngFor="let sb of service.subjectList">{{sb.title}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>STUDENT</label>
+        <select class="form-control form-control-lg" name="studentSel" #studentSel="ngModel" [(ngModel)]="service.formData.studentId" [class.invalid]="studentSel.invalid && studentSel.touched">
+            <option value=null selected>None</option>
+            <option [ngValue]="st.id" *ngFor="let st of service.studentList">{{st.firstName + " " + st.lastName}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>SCORE</label>
+        <input type="number" step=".01" class="form-control form-control-lg" name="score" #score="ngModel" [(ngModel)]="service.formData.score" required pattern="^\d{0,2}(\.\d{1,2})?$" [class.invalid]="score.invalid && score.touched">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info btn-lg btn-block" [disabled]="form.invalid || (subjectSel.pristine && studentSel.pristine && score.pristine)">SUBMIT</button>
+    </div>
+</form>

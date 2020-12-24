@@ -1,0 +1,33 @@
+<div class="jumbotron py-3">
+  <h1 class="display-4 text-center">Students</h1>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <input type="search" class="form-control form-control-lg" placeholder="Search..."  [(ngModel)]=search><br>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col" [appSort]="service.list" data-order="desc" data-name="firstName">First name</th>
+                    <th scope="col" [appSort]="service.list" data-order="desc" data-name="lastName">Last name</th>
+                    <th scope="col" [appSort]="service.list" data-order="desc" data-name="groupNumber">Group</th>
+                    <th scope="col" [appSort]="service.list" data-order="desc" data-name="avgScore">Avg Score</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let st of service.list | filter: search">
+                    <td (click)="populateForm(st)">{{st.firstName}}</td>
+                    <td (click)="populateForm(st)">{{st.lastName}}</td>
+                    <td (click)="populateForm(st)">{{st.groupNumber}}</td>
+                    <td (click)="populateForm(st)">{{st.avgScore}}</td>
+                    <td>
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(st.id)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <app-student-detail-form></app-student-detail-form>
+    </div>
+</div>
