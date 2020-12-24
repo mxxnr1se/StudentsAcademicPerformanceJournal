@@ -10,7 +10,7 @@ namespace API.Configurations.Dependencies
 {
     public static class DALDependencies
     {
-        public static void DalDependenciesResolver(this IServiceCollection services, IConfiguration configuration)
+        public static void DALDependenciesResolver(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<SAPContext>(
                     options => options.UseSqlServer(configuration.GetConnectionString("Default")));

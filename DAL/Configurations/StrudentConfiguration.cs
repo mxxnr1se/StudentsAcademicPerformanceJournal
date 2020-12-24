@@ -29,9 +29,7 @@ namespace DAL.Configurations
                     .Property(s => s.AvgScore)
                     .HasColumnType("decimal(5,2)")
                     .HasDefaultValue(0m);
-            
-            // .HasDefaultValueSql("SELECT SUM(Score)/count(*) FROM Ratings JOIN Students ON Ratings.StudentId == Students.Id");
-            
+
             builder.HasData(
                     new Student {Id = 1, FirstName = "Kylo", LastName = "Rowland", GroupId = 1},
                     new Student {Id = 2, FirstName = "Mylee", LastName = "Millington", GroupId = 1},

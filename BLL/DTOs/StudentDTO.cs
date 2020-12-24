@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using DAL.Entities;
 
 namespace BLL.DTOs
@@ -12,7 +13,9 @@ namespace BLL.DTOs
         
         public int? GroupId { get; set; }
         public string GroupNumber { get; set; }
-
+        
+        [Column(TypeName = "decimal(5, 2)")]
+        [Range(0, 100, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public decimal AvgScore { get; set; }
     }
 }

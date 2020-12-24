@@ -4,14 +4,16 @@ using DAL.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(SAPContext))]
-    partial class SAPContextModelSnapshot : ModelSnapshot
+    [Migration("20201223201132_ExplicitDecimal")]
+    partial class ExplicitDecimal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,7 +78,7 @@ namespace DAL.Migrations
                         .UseIdentityColumn();
 
                     b.Property<decimal>("Score")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(3,2)");
 
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
@@ -732,7 +734,7 @@ namespace DAL.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<decimal>("AvgScore")
+                    b.Property<decimal?>("AvgScore")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("decimal(5,2)")
                         .HasDefaultValue(0m);
@@ -760,7 +762,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 1,
-                            AvgScore = 0m,
                             FirstName = "Kylo",
                             GroupId = 1,
                             LastName = "Rowland"
@@ -768,7 +769,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 2,
-                            AvgScore = 0m,
                             FirstName = "Mylee",
                             GroupId = 1,
                             LastName = "Millington"
@@ -776,7 +776,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 3,
-                            AvgScore = 0m,
                             FirstName = "Summer",
                             GroupId = 1,
                             LastName = "Muir"
@@ -784,7 +783,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 4,
-                            AvgScore = 0m,
                             FirstName = "Shaunie",
                             GroupId = 1,
                             LastName = "Broughton"
@@ -792,7 +790,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 5,
-                            AvgScore = 0m,
                             FirstName = "Cienna",
                             GroupId = 1,
                             LastName = "Nixon"
@@ -800,7 +797,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 6,
-                            AvgScore = 0m,
                             FirstName = "Aaliya",
                             GroupId = 2,
                             LastName = "Arias"
@@ -808,7 +804,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 7,
-                            AvgScore = 0m,
                             FirstName = "Ansh",
                             GroupId = 2,
                             LastName = "Horne"
@@ -816,7 +811,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 8,
-                            AvgScore = 0m,
                             FirstName = "Tamera ",
                             GroupId = 2,
                             LastName = "Kramer"
@@ -824,7 +818,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 9,
-                            AvgScore = 0m,
                             FirstName = "Lucca",
                             GroupId = 2,
                             LastName = "Weiss"
@@ -832,7 +825,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 10,
-                            AvgScore = 0m,
                             FirstName = "June",
                             GroupId = 2,
                             LastName = "Griffiths"
@@ -840,7 +832,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 11,
-                            AvgScore = 0m,
                             FirstName = "Graeme",
                             GroupId = 3,
                             LastName = "Dudley"
@@ -848,7 +839,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 12,
-                            AvgScore = 0m,
                             FirstName = "Kya",
                             GroupId = 3,
                             LastName = "Turnbull"
@@ -856,7 +846,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 13,
-                            AvgScore = 0m,
                             FirstName = "Jermaine",
                             GroupId = 3,
                             LastName = "Daugherty"
@@ -864,7 +853,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 14,
-                            AvgScore = 0m,
                             FirstName = "Nelson",
                             GroupId = 3,
                             LastName = "Haden"
@@ -872,7 +860,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 15,
-                            AvgScore = 0m,
                             FirstName = "Jaylan",
                             GroupId = 3,
                             LastName = "Sloan"
@@ -880,7 +867,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 16,
-                            AvgScore = 0m,
                             FirstName = "Catherine",
                             GroupId = 4,
                             LastName = "Murillo"
@@ -888,7 +874,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 17,
-                            AvgScore = 0m,
                             FirstName = "Erik",
                             GroupId = 4,
                             LastName = "Cunningham"
@@ -896,7 +881,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 18,
-                            AvgScore = 0m,
                             FirstName = "Maribel",
                             GroupId = 4,
                             LastName = "Barnes"
@@ -904,7 +888,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 19,
-                            AvgScore = 0m,
                             FirstName = "Isaac",
                             GroupId = 4,
                             LastName = "Benton"
@@ -912,7 +895,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 20,
-                            AvgScore = 0m,
                             FirstName = "Elliott",
                             GroupId = 4,
                             LastName = "Copeland"
@@ -920,7 +902,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 21,
-                            AvgScore = 0m,
                             FirstName = "Elsa",
                             GroupId = 5,
                             LastName = "Holloway"
@@ -928,7 +909,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 22,
-                            AvgScore = 0m,
                             FirstName = "Odin",
                             GroupId = 5,
                             LastName = "Haley"
@@ -936,7 +916,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 23,
-                            AvgScore = 0m,
                             FirstName = "Carter",
                             GroupId = 5,
                             LastName = "Page"
@@ -944,7 +923,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 24,
-                            AvgScore = 0m,
                             FirstName = "Sonia",
                             GroupId = 5,
                             LastName = "Rose"
@@ -952,7 +930,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 25,
-                            AvgScore = 0m,
                             FirstName = "Johnathan",
                             GroupId = 5,
                             LastName = "Howell"
@@ -960,7 +937,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 26,
-                            AvgScore = 0m,
                             FirstName = "Nelson",
                             GroupId = 6,
                             LastName = "Stark"
@@ -968,7 +944,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 27,
-                            AvgScore = 0m,
                             FirstName = "Bianca",
                             GroupId = 6,
                             LastName = "Bradford"
@@ -976,7 +951,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 28,
-                            AvgScore = 0m,
                             FirstName = "Ariana",
                             GroupId = 6,
                             LastName = "Hernandez"
@@ -984,7 +958,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 29,
-                            AvgScore = 0m,
                             FirstName = "Darryl",
                             GroupId = 6,
                             LastName = "Nielsen"
@@ -992,7 +965,6 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 30,
-                            AvgScore = 0m,
                             FirstName = "Brooke",
                             GroupId = 6,
                             LastName = "Roberts"

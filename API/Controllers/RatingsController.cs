@@ -137,5 +137,33 @@ namespace API.Controllers
                 return NotFound(e.Message);
             }
         }
+        
+        /// <summary>
+        /// This method returns ratings that have an inputted SubjectId property
+        /// </summary>
+        /// <response code="200">Returns ratings that have an inputted SubjectId property</response>
+        
+        //GET api/ratings/subject/{id}
+        [HttpGet("subject/{id:int}")]
+        public async Task<IActionResult> GetRatingBySubjectId(int id)
+        {
+            var ratings = await _ratingService.GetAllBySubjectIdAsync(id);
+            return Ok(ratings);
+        }
+        
+        
+        /// <summary>
+        /// This method returns ratings that have an inputted StudentId property
+        /// </summary>
+        /// <response code="200">Returns ratings that have an inputted StudentId property</response>
+        
+        //GET api/ratings/student/{id}
+        [HttpGet("brand/{id:int}")]
+        public async Task<IActionResult> GetRatingByStudentId(int id)
+        {
+            var ratings = await _ratingService.GetAllByStudentIdAsync(id);
+            return Ok(ratings);
+        }
+        
     }
 }

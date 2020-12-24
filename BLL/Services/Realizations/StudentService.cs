@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +8,6 @@ using BLL.Exceptions;
 using BLL.Services.Interfaces;
 using DAL.Entities;
 using DAL.UnitOfWorks;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace BLL.Services.Realizations
 {
@@ -43,7 +42,8 @@ namespace BLL.Services.Realizations
                     }
                 }
 
-                student.AvgScore = scoresum / count;
+                if (count != 0)
+                    student.AvgScore = decimal.Round((scoresum / count), 2, MidpointRounding.AwayFromZero);
             }
 
             return _mapper.Map<IEnumerable<StudentDTO>>(students);
@@ -70,7 +70,8 @@ namespace BLL.Services.Realizations
                 }
             }
 
-            student.AvgScore = scoresum / count;
+            if (count != 0)
+                student.AvgScore = decimal.Round((scoresum / count), 2, MidpointRounding.AwayFromZero);
 
             return _mapper.Map<StudentDTO>(student);
         }
@@ -140,7 +141,8 @@ namespace BLL.Services.Realizations
                     }
                 }
 
-                student.AvgScore = scoresum / count;
+                if (count != 0)
+                    student.AvgScore = decimal.Round((scoresum / count), 2, MidpointRounding.AwayFromZero);
             }
 
             return _mapper.Map<IEnumerable<StudentDTO>>(studentsByGroupId);

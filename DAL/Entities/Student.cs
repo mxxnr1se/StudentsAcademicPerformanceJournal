@@ -10,7 +10,7 @@ namespace DAL.Entities
         public int? GroupId { get; set; }
         public Group Group { get; set; }
 
-        public decimal? AvgScore;
+        public decimal AvgScore;
         
         public ICollection<Rating> Ratings { get; set; }
         

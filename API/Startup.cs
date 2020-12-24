@@ -30,7 +30,7 @@ namespace API
         {
             services.AddControllers();
             
-            services.DalDependenciesResolver(Configuration);
+            services.DALDependenciesResolver(Configuration);
             services.BLLDependenciesResolver();
             services.AddSingleton(AutoMapperConfiguration.CreateMapper());
             services.AddSingleton<ILog, MyLogger>();

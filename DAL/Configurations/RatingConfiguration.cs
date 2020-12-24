@@ -10,13 +10,8 @@ namespace DAL.Configurations
         {
             builder
                     .Property(r => r.Score)
-                    .HasColumnType("decimal(3,2)")
+                    .HasColumnType("decimal(5,2)")
                     .IsRequired();
-
-            // builder
-            //         .Property(r => r.Student)
-            //         .HasMaxLength(30)
-            //         .IsRequired();
 
             builder
                     .HasOne(r => r.Subject)
